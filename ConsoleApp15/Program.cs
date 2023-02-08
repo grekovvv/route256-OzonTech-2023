@@ -7,8 +7,9 @@ namespace ConsoleApp15
     {
         static void Main(string[] args)
         {
-            string[] testInput = Test.GetInput(@"C:\Users\v.grekov\Downloads\tests\01.a");
-            //string[] result
+            string[] testInput = Test.GetInput(@"Tests\SandBoxOzoneTest\tests (1)\tests\01");
+            string[] testOutput = Test.GetInput(@"Tests\SandBoxOzoneTest\tests (1)\tests\01.a");
+            string[] result = { };
             for (int i = 0; i < testInput.Length; i++)
             {
                 string str = testInput[i];
@@ -20,11 +21,12 @@ namespace ConsoleApp15
                     bool isBint = Int32.TryParse(arr[1], out b);
                     if (isAint && isBint)
                     {
-                        Console.WriteLine(a + b);
+                        //Console.WriteLine(a + b);
+                        result.Append($"{a + b}");
                     }
                 }
             }
-
+            Test.Compare(result, testOutput);
             /*while (true)
             {
                 string? str = Console.ReadLine();

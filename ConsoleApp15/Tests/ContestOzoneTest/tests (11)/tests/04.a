@@ -1,0 +1,4 @@
+ rank | user_id | user_name | problem_count | latest_successful_submitted_at 
+------+---------+-----------+---------------+--------------------------------
+    1 |       2 | A         |             0 |                                
+(1 row)

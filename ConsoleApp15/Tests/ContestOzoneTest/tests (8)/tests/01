@@ -1,0 +1,54 @@
+4
+5
+<table>
+    <tr>
+        <td></td>
+    </tr>
+</table>
+4
+<table>
+    <tr><td></td><td></td><td></td></tr>
+    <tr><td></td><td></td><td></td></tr>
+</table>
+5
+<t                      a
+ble><tr><td></td></tr><tr
+><td><table><tr><td></td>
+</tr></table></td></tr></
+table                   >
+35
+<table>
+    <tr>
+        <td>
+        </td>
+        <td>
+            <table>
+                <tr><td>
+                    <table><tr><td></td></tr></table>
+                </td></tr>
+            </table>
+        </td>
+        <td>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <table><tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr></table>
+        </td>
+        <td>
+            <table><tr><td></td></tr></table>
+        </td>
+        <td>
+            <table>
+                <tr><td></td></tr>
+                <tr><td></td></tr>
+                <tr><td></td></tr>
+            </table>
+        </td>
+    </tr>
+</table>

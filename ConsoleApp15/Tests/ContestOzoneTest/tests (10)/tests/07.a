@@ -1,0 +1,8 @@
+ id | name | solved_at_least_one_contest_count | take_part_contest_count 
+----+------+-----------------------------------+-------------------------
+  8 | B    |                                 2 |                       2 
+ 11 | Ab   |                                 2 |                       2 
+  2 | B    |                                 0 |                       2 
+  5 | a    |                                 0 |                       2 
+  6 | b    |                                 0 |                       0 
+(5 rows)

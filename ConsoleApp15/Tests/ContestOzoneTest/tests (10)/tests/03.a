@@ -1,0 +1,4 @@
+ id | name | solved_at_least_one_contest_count | take_part_contest_count 
+----+------+-----------------------------------+-------------------------
+  3 | b    |                                 0 |                       0 
+(1 row)

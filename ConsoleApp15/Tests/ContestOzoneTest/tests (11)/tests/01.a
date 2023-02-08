@@ -1,0 +1,7 @@
+ rank | user_id | user_name       | problem_count | latest_successful_submitted_at 
+------+---------+-----------------+---------------+--------------------------------
+    1 |       1 | Marie Curie     |             1 | 2023-02-05 11:03:00            
+    1 |       2 | Stephen Hawking |             1 | 2023-02-05 11:03:00            
+    3 |       3 | Ada Lovelace    |             1 | 2023-02-05 11:06:00            
+    4 |       5 | Archimedes      |             0 |                                
+(4 rows)

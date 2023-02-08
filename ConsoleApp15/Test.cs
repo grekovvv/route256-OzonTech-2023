@@ -16,7 +16,7 @@ namespace ConsoleApp15
             {
                 string? str = line;
                 if (str == null) break;
-                Console.WriteLine(str);
+                //Console.WriteLine(str);
                 result.Append(str);
             }
             return result;
@@ -29,7 +29,7 @@ namespace ConsoleApp15
             {
                 string? str = line;
                 if (str == null) break;
-                Console.WriteLine(str);
+                //Console.WriteLine(str);
                 result.Append(str);
             }
             return result;
@@ -44,22 +44,27 @@ namespace ConsoleApp15
             }
             for (int i = 0; i < result.Length; i++)
             {
-                if (result[i] != _out[i]) return false;
+                if (result[i] != _out[i])
+                {
+                    Console.WriteLine($"Ошибка! - {result[i]} != {_out[i]}");
+                    return false;
+                }
+
             }
+            Console.WriteLine($"Тест пройден успешно!");
             return true;
         }
 
-        static void TestMethod(string testsFile, string testResult)
+       /* static void Test(string[] myOutput, string[] ozonOutput)
         {
             List<string> result = new List<string>();
-            foreach (string line in System.IO.File.ReadLines(filePath))
-            
+            foreach (string line in System.IO.File.ReadLines(testsFile))
             {
                 string? str = line;
                 if (str == null) break;
                 Console.WriteLine(str);
                 result.Add(str);
             }    
-        }
+        }*/
     }
 }

@@ -1,0 +1,86 @@
+create table users (                                                                      
+  id bigint primary key,                                                                           
+  name varchar not null                                                                            
+);                                                                                                 
+                                                                                                   
+create table contests (                                                                            
+  id bigint primary key,                                                                           
+  name varchar not null                                                                            
+);                                                                                                 
+                                                                                                   
+create table problems (                                                                            
+  id bigint primary key,                                                                           
+  contest_id bigint,                                                                               
+  code varchar not null,                                                                           
+  constraint fk_problems_contest_id foreign key (contest_id) references contests (id)              
+);                                                                                                 
+                                                                                                   
+create unique index on problems (contest_id, code);                                                
+                                                                                                   
+create table submissions (                                                                         
+  id bigint primary key,                                                                           
+  user_id bigint,                                                                                  
+  problem_id bigint,                                                                               
+  success boolean not null,                                                                        
+  submitted_at timestamp not null,                                                                 
+  constraint fk_submissions_user_id foreign key (user_id) references users (id),                   
+  constraint fk_submissions_problem_id foreign key (problem_id) references problems (id)           
+);
+
+insert into users values
+(11, 'A'),
+(9, 'A'),
+(8, 'B'),
+(6, 'b'),
+(5, 'B');
+
+insert into contests values
+(3, 'b'),
+(6, 'b'),
+(4, 'A'),
+(8, 'b');
+
+insert into problems values
+(21, 3, 'A'),
+(5, 4, 'A'),
+(20, 4, 'B'),
+(16, 3, 'B'),
+(17, 8, 'A'),
+(8, 3, 'C'),
+(19, 6, 'A'),
+(15, 3, 'D'),
+(13, 8, 'B'),
+(7, 3, 'E');
+
+insert into submissions values
+(21, 9, 16, false, '2023-01-05 11:00:54'),
+(48, 6, 19, false, '2023-01-05 11:00:31'),
+(29, 9, 15, false, '2023-01-05 11:00:55'),
+(50, 6, 19, false, '2023-01-05 11:00:43'),
+(11, 5, 15, false, '2023-01-05 11:00:11'),
+(45, 6, 5, false, '2023-01-05 11:00:17'),
+(43, 6, 7, false, '2023-01-05 11:00:18'),
+(24, 6, 16, false, '2023-01-05 11:00:05'),
+(46, 6, 7, false, '2023-01-05 11:00:46'),
+(42, 6, 15, false, '2023-01-05 11:00:17'),
+(17, 9, 20, false, '2023-01-05 11:00:27'),
+(53, 9, 15, false, '2023-01-05 11:00:06'),
+(54, 6, 8, false, '2023-01-05 11:00:50'),
+(25, 9, 19, false, '2023-01-05 11:00:44'),
+(31, 5, 7, false, '2023-01-05 11:00:18'),
+(27, 5, 16, false, '2023-01-05 11:00:08'),
+(36, 5, 15, false, '2023-01-05 11:00:55'),
+(4, 5, 20, false, '2023-01-05 11:00:55'),
+(2, 5, 16, false, '2023-01-05 11:00:00'),
+(5, 9, 16, false, '2023-01-05 11:00:04'),
+(16, 9, 19, false, '2023-01-05 11:00:17'),
+(52, 5, 15, false, '2023-01-05 11:00:57'),
+(3, 6, 19, false, '2023-01-05 11:00:29'),
+(47, 6, 19, false, '2023-01-05 11:00:15'),
+(6, 5, 20, false, '2023-01-05 11:00:26'),
+(9, 6, 15, false, '2023-01-05 11:00:35'),
+(20, 5, 15, false, '2023-01-05 11:00:29'),
+(55, 5, 7, false, '2023-01-05 11:00:15'),
+(32, 9, 19, false, '2023-01-05 11:00:02'),
+(7, 9, 20, true, '2023-01-05 11:00:55');
+

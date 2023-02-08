@@ -1,0 +1,13 @@
+ id | name | solved_at_least_one_contest_count | take_part_contest_count 
+----+------+-----------------------------------+-------------------------
+ 11 | ba   |                                 1 |                       3 
+ 20 | a    |                                 1 |                       3 
+ 21 | aaB  |                                 1 |                       3 
+ 19 | ABBA |                                 1 |                       2 
+  4 | b    |                                 0 |                       3 
+ 17 | AbB  |                                 0 |                       3 
+  3 | ABaA |                                 0 |                       1 
+  6 | BBaB |                                 0 |                       1 
+  7 | b    |                                 0 |                       0 
+ 14 | AaAB |                                 0 |                       0 
+(10 rows)

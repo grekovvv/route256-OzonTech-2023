@@ -1,0 +1,7 @@
+ rank | user_id | user_name | problem_count | latest_successful_submitted_at 
+------+---------+-----------+---------------+--------------------------------
+    1 |       6 | Henry     |             2 | 2023-02-05 11:09:00            
+    2 |       3 | Lucas     |             1 | 2023-02-05 11:07:49            
+    2 |       5 | Charlotte |             1 | 2023-02-05 11:07:49            
+    4 |       2 | Henry     |             0 |                                
+(4 rows)

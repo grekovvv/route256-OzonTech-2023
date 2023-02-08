@@ -1,0 +1,8 @@
+ id | name            | solved_at_least_one_contest_count | take_part_contest_count 
+----+-----------------+-----------------------------------+-------------------------
+  2 | Stephen Hawking |                                 3 |                       3 
+  1 | Marie Curie     |                                 2 |                       3 
+  3 | Ada Lovelace    |                                 1 |                       2 
+  5 | Archimedes      |                                 0 |                       1 
+  4 | Albert Einstein |                                 0 |                       0 
+(5 rows)

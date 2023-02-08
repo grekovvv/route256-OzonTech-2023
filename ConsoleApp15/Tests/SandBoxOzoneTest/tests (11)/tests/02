@@ -1,0 +1,36 @@
+create table users 
+(                                          
+    id   bigint primary key,               
+    name varchar not null                  
+);
+
+insert into users values
+(6, 'A'),
+(5, 'AB'),
+(18, 'B'),
+(10, 'AB'),
+(21, 'B'),
+(4, 'B'),
+(20, 'BB'),
+(1, 'A'),
+(9, 'B'),
+(7, 'AB');
+
+create table orders                                        
+(                                                                                   
+    id         bigint primary key,                                                  
+    user_id    bigint  not null,                                                    
+    product    varchar not null,                                                    
+    constraint fk_orders_user_id foreign key (user_id) references users (id)        
+);
+
+insert into orders values
+(7, 10, 'A'),
+(10, 5, 'BA'),
+(6, 9, 'A'),
+(5, 1, 'B'),
+(8, 1, 'AB'),
+(16, 18, 'B'),
+(9, 4, 'B'),
+(11, 10, 'BB');
+
