@@ -9,27 +9,23 @@ namespace ConsoleApp15
     //@"C:\Users\v.grekov\Downloads\tests\01.a"
     public class Test
     {
-        public static string[] GetInput(string File)
+        public static void AllTest(int numTest) //tests (1)
+        {
+
+        }
+        public static bool IsPathExist()
+        {
+            string path = Path.GetFullPath(@"Tests\SandBoxOzoneTest\tests (1)\tests\01");
+            bool aa = Path.Exists(pathQ);
+        }
+
+        public static string[] GetFileData(string File)
         {
             string[] result = { }; 
             foreach (string line in System.IO.File.ReadLines(File))
             {
                 string? str = line;
                 if (str == null) break;
-                //Console.WriteLine(str);
-                result.Append(str);
-            }
-            return result;
-        }
-
-        public static string[] GetOutput(string File)
-        {
-            string[] result = { };
-            foreach (string line in System.IO.File.ReadLines(File))
-            {
-                string? str = line;
-                if (str == null) break;
-                //Console.WriteLine(str);
                 result.Append(str);
             }
             return result;
@@ -54,17 +50,5 @@ namespace ConsoleApp15
             Console.WriteLine($"Тест пройден успешно!");
             return true;
         }
-
-       /* static void Test(string[] myOutput, string[] ozonOutput)
-        {
-            List<string> result = new List<string>();
-            foreach (string line in System.IO.File.ReadLines(testsFile))
-            {
-                string? str = line;
-                if (str == null) break;
-                Console.WriteLine(str);
-                result.Add(str);
-            }    
-        }*/
     }
 }

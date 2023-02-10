@@ -7,8 +7,12 @@ namespace ConsoleApp15
     {
         static void Main(string[] args)
         {
-            string[] testInput = Test.GetInput(@"Tests\SandBoxOzoneTest\tests (1)\tests\01");
-            string[] testOutput = Test.GetInput(@"Tests\SandBoxOzoneTest\tests (1)\tests\01.a");
+            string pathQ = Path.GetFullPath(@"Tests\SandBoxOzoneTest\tests (1)\tests\01");
+            string pathA = Path.GetFullPath(@"Tests\SandBoxOzoneTest\tests (fasdfasdfasdf)\tests\01");
+            bool aa = Path.Exists(pathQ);
+            bool bb = Path.Exists(pathA);
+            string[] testInput = Test.GetFileData(@"Tests\SandBoxOzoneTest\tests (1)\tests\01");
+            string[] testOutput = Test.GetFileData(@"Tests\SandBoxOzoneTest\tests (1)\tests\01.a");
             string[] result = { };
             for (int i = 0; i < testInput.Length; i++)
             {
