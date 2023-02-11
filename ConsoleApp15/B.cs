@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp15
+namespace OzonTech
 {
     internal class B : MainInterface
     {

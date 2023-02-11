@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-namespace ConsoleApp15
+namespace OzonTech
 {
     //@"C:\Users\v.grekov\Downloads\tests\01.a"
     public class Test

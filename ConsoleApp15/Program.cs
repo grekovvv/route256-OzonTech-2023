@@ -2,7 +2,7 @@
 using System.Security.Cryptography.X509Certificates;
 using OzoneTechAlgorithm.Enum;
 
-namespace ConsoleApp15
+namespace OzonTech
 {
     internal class Program
     {
