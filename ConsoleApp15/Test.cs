@@ -1,9 +1,13 @@
-﻿using System;
+﻿using OzoneTechAlgorithm.Interface;
+using OzoneTechAlgorithm.Enum;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace ConsoleApp15
 {
@@ -13,30 +17,60 @@ namespace ConsoleApp15
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="numTest"></param>
-        /// <param name=""></param>
-        public static void AllTest(int numTest, string nameFolder) //tests (1)
+        /// <param name="numTest">test (1)</param>
+        /// <param name="nameFolder">SandBox or Contest</param>
+        public static void AllTest<T>(int numTest, TestFileFolder nameFolder, T testClass) where T : class
         {
-            if ((nameFolder == "Contest" || nameFolder == "Sanbox") == false) return;
+            Stopwatch TimeOneTest = new Stopwatch();
+            Stopwatch AllTests = new Stopwatch();
+            AllTests.Start();
+
+            MainInterface? testClassVerified = testClass as MainInterface;
+            if (testClassVerified == null) return;
+
             int i = 1;
             string pathIn = "";
             string pathOut = "";
+            string[] testIn = { };
+            string[] testResult = { };
+            string[] testOut = { };
+            string testNumPath = "";
+
             while (true)
             {
-                pathIn = $"Tests\\SandBoxOzoneTest\\tests ({numTest})\\tests\\0{i}";
-                pathOut = $"Tests\\SandBoxOzoneTest\tests ({numTest})\\tests\\0{i}.a";
+                TimeOneTest.Start();
+                if (i<10)
+                {
+                    testNumPath = string.Format($"0{i}");
+                }
+                else
+                {
+                    testNumPath = i.ToString();
+                }
+
+                pathIn = $"Tests\\{nameFolder}OzoneTest\\tests ({numTest})\\tests\\{testNumPath}";
+                pathOut = $"Tests\\{nameFolder}OzoneTest\\tests ({numTest})\\tests\\{testNumPath}.a";
                 bool pathInExist = IsPathExist(pathIn);
                 bool pathOutExist = IsPathExist(pathOut);
-                if (pathInExist && pathOutExist)
+                if (!pathInExist && !pathOutExist)
                 {
-                    string[] testInput = Test.GetFileData(pathIn);
-                    string[] testOutput = Test.GetFileData(pathOut);
+                    AllTests.Stop();
+                    Console.WriteLine($"Все тесты пройдены! | Общее время выполнения: {AllTests.Elapsed.TotalSeconds} seconds" + "\n");
+                    return;
                 }
-                
 
+                testIn = GetFileData(pathIn);
+                testOut = GetFileData(pathOut);
+                testResult = testClassVerified.MainMethod(testIn);
+                if(!Compare(testResult, testOut, i)) return;
+
+                TimeOneTest.Stop();
+                Console.Write($" | Время выполнения: {TimeOneTest.Elapsed.TotalSeconds} seconds" + "\n");
+                TimeOneTest.Reset();
 
                 i++;
             }
+            
         }
         public static bool IsPathExist(string path)
         {
@@ -46,33 +80,34 @@ namespace ConsoleApp15
 
         public static string[] GetFileData(string File)
         {
-            string[] result = { }; 
+            List<string> list = new List<string>();
+            int i = 0;
             foreach (string line in System.IO.File.ReadLines(File))
             {
                 string? str = line;
                 if (str == null) break;
-                result.Append(str);
+                list.Add(str);
             }
-            return result;
+            return list.ToArray();
         }
 
-        public static bool Compare(string[] result, string[] _out)
+        public static bool Compare(string[] result, string[] _out, int testNum)
         {
             if (result.Length != _out.Length)
             {
-                Console.WriteLine("Ошибка! Массивы не равны.");
+                Console.WriteLine($"ERROR! Массивы не равны.  | test - {testNum}");
                 return false;
             }
             for (int i = 0; i < result.Length; i++)
             {
                 if (result[i] != _out[i])
                 {
-                    Console.WriteLine($"Ошибка! - {result[i]} != {_out[i]}");
+                    Console.WriteLine($"ERROR! - {result[i]} != {_out[i]} | test - {testNum}");
                     return false;
                 }
 
             }
-            Console.WriteLine($"Тест пройден успешно!");
+            Console.Write($"Тест {testNum} пройден успешно!");
             return true;
         }
     }
