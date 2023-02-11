@@ -7,10 +7,7 @@ namespace ConsoleApp15
     {
         static void Main(string[] args)
         {
-            string pathQ = Path.GetFullPath(@"Tests\SandBoxOzoneTest\tests (1)\tests\01");
-            string pathA = Path.GetFullPath(@"Tests\SandBoxOzoneTest\tests (fasdfasdfasdf)\tests\01");
-            bool aa = Path.Exists(pathQ);
-            bool bb = Path.Exists(pathA);
+            
             string[] testInput = Test.GetFileData(@"Tests\SandBoxOzoneTest\tests (1)\tests\01");
             string[] testOutput = Test.GetFileData(@"Tests\SandBoxOzoneTest\tests (1)\tests\01.a");
             string[] result = { };
@@ -47,6 +44,13 @@ namespace ConsoleApp15
                     }
                 }
             }*/
+        }
+
+        public static string[] Method2(string testInput)
+        {
+            string[] result = { };
+
+            return result;
         }
     }
 }
