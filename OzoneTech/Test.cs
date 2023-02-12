@@ -109,5 +109,13 @@ namespace OzonTech
             Console.Write($"Тест {testNum} пройден успешно!");
             return true;
         }
+
+        public static void GetMatrix(string[,] matrix)
+        {
+            for (int i = 0; i < matrix.Length; i++)
+            {
+
+            }
+        }
     }
 }
