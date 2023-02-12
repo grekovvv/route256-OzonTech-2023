@@ -6,7 +6,7 @@ namespace OzonTech
     {
         public string[] MainMethod(string[] input)
         {
-            input = Test.GetFileData("Tests\\SandBoxOzoneTest\\tests (4)\\tests\\02");
+            //input = Test.GetFileData("Tests\\SandBoxOzoneTest\\tests (4)\\tests\\02");
             List<string> list = new List<string>();
             int capacity = int.Parse(input[0]);
             int count = 0;
@@ -29,13 +29,18 @@ namespace OzonTech
                     }
                 }
 
-                //string[] clickCol = input[i + rows + 2].Split(' ').Distinct().ToArray();
                 string[] clickCol = input[i + rows + 2].Split(' ').ToArray();
                 int temp, tempCol;
 
-                for (int f = 0; f < clickCol.Length-1; f++)
+                for (int f = 0; f < clickCol.Length; f++)
                 {
                     int col = Convert.ToInt32(clickCol[f]) - 1;
+                    if (f > 0)
+                    {
+                        //пропускаем если в предыдущем шаге уже сортировали этот столбец
+                        if (col == Convert.ToInt32(clickCol[f - 1])) continue;
+                    }
+                    
                     for (int rov = 0; rov < rows; rov++)
                         {
                             for (int rov2 = rov+1; rov2 < rows; rov2++)
