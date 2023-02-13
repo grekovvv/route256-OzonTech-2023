@@ -91,6 +91,7 @@ namespace OzonTech
 
         public static bool Compare(string[] result, string[] _out, int testNum)
         {
+            int code_string = 0;
             if (result.Length != _out.Length)
             {
                 Console.WriteLine($"ERROR! Массивы не равны.  | test - {testNum}");
@@ -100,9 +101,10 @@ namespace OzonTech
             {
                 if (result[i] != _out[i])
                 {
-                    Console.WriteLine($"ERROR! - {result[i]} != {_out[i]} | test - {testNum}");
+                    Console.WriteLine($"ERROR! - {result[i]} != {_out[i]} | test - {testNum} | string - {code_string}");
                     return false;
                 }
+                code_string++;
             }
             Console.Write($"Тест {testNum} пройден успешно!");
             return true;

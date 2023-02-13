@@ -13,15 +13,15 @@ namespace OzonTech
         {
             List<string> list = new List<string>();
             int capacity = int.Parse(input[0]);
-            int count = 0, count2, count3;
+            int count = 0, count2, count3, count4;
             int temp;
             int capacityTimeArr;
             bool isRight = true, badValue = false;
             int[] arr = { };
             for (int i = 1; count < capacity; i = i + capacityTimeArr + 1)
             {
-                isRight = true;
                 badValue = false;
+                isRight = true;
                 count2 = 0;
                 count3 = 0;
                 capacityTimeArr = int.Parse(input[i]);
@@ -36,9 +36,15 @@ namespace OzonTech
                         if(g == 0 || g == 3)
                         {
                             if (time[g] > 23 || time[g] < 0) { badValue = true; break; }
-                            else if (time[g] > 59 || time[g] < 0) { badValue = true; break; }
                         }
+                        else
+                        {
+                            if (time[g] > 59 || time[g] < 0) { badValue = true; break; }
+                        }
+                        
                     }
+
+                    if (badValue) break;
 
                     if (time[0] > time[3])
                     {
@@ -64,31 +70,46 @@ namespace OzonTech
                             }
                         }
                     }
-
-
-
                     count2++;
                 }
-//Если произошёл break
+                //Если произошёл break
                 if (count2 != capacityTimeArr) 
                     isRight = false;
 
                 if (isRight)
                 {
-                    for (int j = i; count3 < capacityTimeArr; j++)
+                    if (capacityTimeArr > 1)
                     {
-                        int[] time = input[j + 1].Split(':', '-').Select(x => int.Parse(x)).ToArray();
-
-                        for (int h = 0; h < capacityTimeArr; h++)
+                        for (int d = i; count3 < capacityTimeArr; d++)
                         {
+                            string[] time1 = input[d + 1].Split('-');
+                            count4 = 0;
+                            for (int h = i+1; count4 < capacityTimeArr; h++)
+                            {
+                                if (d + 1 == h)
+                                {
+                                    count4++; 
+                                    continue;
+                                }
+                                string[] time2 = input[h].Split('-');
 
-                        }
-
-                        count3++;
+                                if (time1[0] == time2[0] || time1[0] == time2[1] 
+                                    || time1[1] == time2[0] || time1[1] == time2[1])
+                                {
+                                    badValue = true; break;
+                                }
+                                count4++;
+                            }
+                            if (badValue) break;
+                            count3++;
+                        } 
                     }
                 }
 
-                if (isRight && !badValue)
+                if (capacityTimeArr > 1 && count3 != capacityTimeArr)
+                    isRight = false;
+
+                if (isRight)
                 {
                     list.Add("YES");
                 }

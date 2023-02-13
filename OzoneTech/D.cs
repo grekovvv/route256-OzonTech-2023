@@ -13,7 +13,7 @@ namespace OzonTech
         /// <param name="input"></param>
         /// <returns></returns>
         public string[] MainMethod(string[] input)
-        {
+        {   
             
             List<string> list = new List<string>();
             int capacity = int.Parse(input[0]);
