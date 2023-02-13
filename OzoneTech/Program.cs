@@ -12,7 +12,8 @@ namespace OzonTech
             B b = new B();
             C c = new C();
             D d = new D();
-            Test.AllTest(4, TestFileFolder.SandBox, d);
+            E e = new E();
+            Test.AllTest(5, TestFileFolder.SandBox, e);
             Console.ReadLine();
         }
     }

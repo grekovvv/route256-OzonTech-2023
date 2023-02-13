@@ -80,7 +80,6 @@ namespace OzonTech
         public static string[] GetFileData(string File)
         {
             List<string> list = new List<string>();
-            int i = 0;
             foreach (string line in System.IO.File.ReadLines(File))
             {
                 string? str = line;
@@ -104,18 +103,9 @@ namespace OzonTech
                     Console.WriteLine($"ERROR! - {result[i]} != {_out[i]} | test - {testNum}");
                     return false;
                 }
-
             }
             Console.Write($"Тест {testNum} пройден успешно!");
             return true;
-        }
-
-        public static void GetMatrix(string[,] matrix)
-        {
-            for (int i = 0; i < matrix.Length; i++)
-            {
-
-            }
         }
     }
 }
