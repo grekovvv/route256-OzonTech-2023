@@ -4,9 +4,17 @@ namespace OzonTech
 {
     internal class D : MainInterface
     {
+        /// <summary>
+        /// Все тесты, кроме 8 - 10 проходят.
+        /// Последние не проходят, как я думаю, из-за несоблюдения мной этого условия:
+        /// При этом, если у двух строк одинаковое значение в этом столбце, то относительный порядок строк не изменится.
+        /// Как его соблюсти я пока не знаю.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
         public string[] MainMethod(string[] input)
         {
-            //input = Test.GetFileData("Tests\\SandBoxOzoneTest\\tests (4)\\tests\\02");
+            
             List<string> list = new List<string>();
             int capacity = int.Parse(input[0]);
             int count = 0;
