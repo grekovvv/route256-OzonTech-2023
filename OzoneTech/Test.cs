@@ -61,7 +61,7 @@ namespace OzonTech
                 testIn = GetFileData(pathIn);
                 testOut = GetFileData(pathOut);
                 testResult = testClassVerified.MainMethod(testIn);
-                if(!Compare(testResult, testOut, i)) return;
+                Compare(testResult, testOut, i);
 
                 TimeOneTest.Stop();
                 Console.Write($" | Время выполнения: {TimeOneTest.Elapsed.TotalSeconds} seconds" + "\n");
@@ -91,17 +91,17 @@ namespace OzonTech
 
         public static bool Compare(string[] result, string[] _out, int testNum)
         {
-            int code_string = 0;
+            int code_string = 1;
             if (result.Length != _out.Length)
             {
-                Console.WriteLine($"ERROR! Массивы не равны.  | test - {testNum}");
+                Console.Write($"ERROR! Массивы не равны.  | test - {testNum}");
                 return false;
             }
             for (int i = 0; i < result.Length; i++)
             {
                 if (result[i] != _out[i])
                 {
-                    Console.WriteLine($"ERROR! - {result[i]} != {_out[i]} | test - {testNum} | string - {code_string}");
+                    Console.Write($"ERROR! - {result[i]} != {_out[i]} | test - {testNum} | string - {code_string}");
                     return false;
                 }
                 code_string++;

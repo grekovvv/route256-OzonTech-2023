@@ -80,6 +80,8 @@ namespace OzonTech
                 {
                     if (capacityTimeArr > 1)
                     {
+                        //Проверяй последовательно, не возвращаясь к первым элементам.
+                        //Всё же нужно проверять промежуток с помощью функции.
                         for (int d = i; count3 < capacityTimeArr; d++)
                         {
                             string[] time1 = input[d + 1].Split('-');
