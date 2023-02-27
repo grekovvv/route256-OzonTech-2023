@@ -86,11 +86,10 @@ namespace OzonTech
                         //Проверяй последовательно, не возвращаясь к первым элементам.
                         //Всё же нужно проверять промежуток с помощью функции.
 
-                        //Возможно count ставить единицей везде
+                        //Здесь вроде всё нормально
                         for (int d = i+1; count3 < capacityTimeArr; d++)
                         {
                             string[] time1 = input[d].Split('-');
-                            //count4 = 1 + count3; - рабочий вариант
                             count4 = 1 + count3;
                             for (int h = d + 1; count4 < capacityTimeArr; h++)
                             {
@@ -107,7 +106,6 @@ namespace OzonTech
                             count3++;
                         }
 
-
                         if (!badValue)
                         {
                             for (int d = i + 1; count5 < capacityTimeArr; d++)
@@ -119,7 +117,118 @@ namespace OzonTech
                                     int[] time2 = Array.ConvertAll(input[h].Split('-', ':'), s => int.Parse(s));
 
                                     //нужно проверять и c точки зрения time1 и с точки зрения time2, то есть два раза
+
+                                    //нужно знать первое или второе значение дальше проверять, следоватьельно разбить на два списка
+
+                                    /*for (int p = 0; p < 3; p++)
+                                    {
+                                        for (int l = 0; l < 3; l++)
+                                        {
+                                            if (time1[p + l] > time2[p + l] && time1[p + l] > time2[3 + l])
+                                            {
+                                                badValue = true; break;
+                                            }
+                                            l++;
+                                        }
+                                        p++;
+                                    }*/
+
                                     if (((time1[0] > time2[0] && time1[0] < time2[3]) || (time1[3] > time2[0] && time1[3] < time2[3]))
+                                        || ((time2[0] > time1[0] && time2[0] < time1[3]) || (time2[3] > time1[0] && time2[3] < time1[3])))
+                                    {
+                                        badValue = true; break;
+                                    }
+                                    else if (time1[0] == time2[0] || time1[0] == time2[3] || time1[3] == time2[0] || time1[3] == time2[3])
+                                    {
+                                        if (time1[0] == time2[0]) 
+                                        {
+                                            if (time1[1] > time2[1] && time1[1] < time2[4])
+                                            {
+                                                badValue = true; break;
+                                            }
+                                            else
+                                            {
+                                                if(time1[1] == time2[1] || time1[1] == time2[4])
+                                                {
+                                                    if(time1[2] > time2[2] && time1[2] < time2[5])
+                                                    {
+                                                        badValue = true; break;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        if (time1[0] == time2[3])
+                                        {
+                                            if (time1[4] > time2[1] && time1[4] < time2[4])
+                                            {
+                                                badValue = true; break;
+                                            }
+                                            else
+                                            {
+                                                if (time1[4] == time2[1] && time1[4] == time2[4])
+                                                {
+                                                    if (time1[5] > time2[2] && time1[5] < time2[5])
+                                                    {
+                                                        badValue = true; break;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        if (time1[3] == time2[0])
+                                        {
+                                            if (time2[1] > time1[1] && time2[1] < time1[4])
+                                            {
+                                                badValue = true; break;
+                                            }
+                                            else
+                                            {
+                                                if (time1[1] == time2[1] && time1[1] == time2[4])
+                                                {
+                                                    if (time1[5] > time2[2] && time1[5] < time2[5])
+                                                    {
+                                                        badValue = true; break;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        if (time1[3] == time2[3])
+                                        {
+                                            if (time2[4] > time1[1] && time2[4] < time1[4])
+                                            {
+                                                badValue = true; break;
+                                            }
+                                            else
+                                            {
+                                                if (time1[4] == time2[1] && time1[4] == time2[4])
+                                                {
+                                                    if (time1[5] > time2[2] && time1[5] < time2[5])
+                                                    {
+                                                        badValue = true; break;
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        /*if (((time1[1] > time2[1] && time1[1] < time2[4]) || (time1[4] > time2[1] && time1[4] < time2[4]))
+                                            || ((time2[1] > time1[1] && time2[1] < time1[4]) || (time2[4] > time1[1] && time2[4] < time1[4])))
+                                        {
+                                            badValue = true; break;
+                                        }
+                                        else if (time1[1] == time2[1] || time1[1] == time2[4] || time1[4] == time2[1] || time1[4] == time2[4])
+                                        {
+                                            //не проверяем на равенство, так как, если они равны, то они до этого этапа не дойдут, их раньше выкинет
+                                            if (((time1[2] > time2[2] && time1[2] < time2[5]) || (time1[5] > time2[2] && time1[5] < time2[5]))
+                                                || ((time2[2] > time1[2] && time2[2] < time1[5]) || (time2[5] > time1[2] && time2[5] < time1[5])))
+                                            {
+                                                badValue = true; break;
+                                            }
+
+                                        }*/
+                                    }
+
+
+
+                                    /*if (((time1[0] > time2[0] && time1[0] < time2[3]) || (time1[3] > time2[0] && time1[3] < time2[3]))
                                         || ((time2[0] > time1[0] && time2[0] < time1[3]) || (time2[3] > time1[0] && time2[3] < time1[3])))
                                     {
                                         badValue = true; break;
@@ -141,7 +250,7 @@ namespace OzonTech
                                             }
 
                                         }
-                                    }
+                                    }*/
                                     if (badValue) break;
                                     count6++;
                                 }
