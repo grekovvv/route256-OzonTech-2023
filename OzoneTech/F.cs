@@ -86,11 +86,10 @@ namespace OzonTech
                         //Проверяй последовательно, не возвращаясь к первым элементам.
                         //Всё же нужно проверять промежуток с помощью функции.
 
-                        //Возможно count ставить единицей везде
+                        //Здесь вроде всё нормально
                         for (int d = i+1; count3 < capacityTimeArr; d++)
                         {
                             string[] time1 = input[d].Split('-');
-                            //count4 = 1 + count3; - рабочий вариант
                             count4 = 1 + count3;
                             for (int h = d + 1; count4 < capacityTimeArr; h++)
                             {
@@ -106,7 +105,6 @@ namespace OzonTech
                             if (badValue) break;
                             count3++;
                         }
-
 
                         if (!badValue)
                         {
