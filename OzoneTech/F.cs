@@ -90,6 +90,7 @@ namespace OzonTech
                         for (int d = i+1; count3 < capacityTimeArr; d++)
                         {
                             string[] time1 = input[d].Split('-');
+                            //count4 = 1 + count3; - рабочий вариант
                             count4 = 1 + count3;
                             for (int h = d + 1; count4 < capacityTimeArr; h++)
                             {
@@ -106,7 +107,7 @@ namespace OzonTech
                             count3++;
                         }
 
-                        
+
                         if (!badValue)
                         {
                             for (int d = i + 1; count5 < capacityTimeArr; d++)
@@ -117,93 +118,47 @@ namespace OzonTech
                                 {
                                     int[] time2 = Array.ConvertAll(input[h].Split('-', ':'), s => int.Parse(s));
 
-                                    if ((time1[0] > time2[0] && time1[0] < time2[3])
-                                        || (time1[3] > time2[0] && time1[3] < time2[3]))
+                                    //нужно проверять и c точки зрения time1 и с точки зрения time2, то есть два раза
+                                    if (((time1[0] > time2[0] && time1[0] < time2[3]) || (time1[3] > time2[0] && time1[3] < time2[3]))
+                                        || ((time2[0] > time1[0] && time2[0] < time1[3]) || (time2[3] > time1[0] && time2[3] < time1[3])))
                                     {
-                                        if (badValue) break;
+                                        badValue = true; break;
                                     }
-                                    else if (time1[0] == time2[0] || time1[0] == time2[3]
-                                            || time1[3] == time2[0] || time1[3] == time2[3])
+                                    else if (time1[0] == time2[0] || time1[0] == time2[3] || time1[3] == time2[0] || time1[3] == time2[3])
                                     {
-                                        if (time1[1] > time2[1] && time1[1] < time2[4]
-                                            || time1[4] > time2[1] && time1[4] < time2[4])
+                                        if (((time1[1] > time2[1] && time1[1] < time2[4]) || (time1[4] > time2[1] && time1[4] < time2[4]))
+                                            || ((time2[1] > time1[1] && time2[1] < time1[4]) || (time2[4] > time1[1] && time2[4] < time1[4])))
                                         {
-                                            if (badValue) break;
+                                            badValue = true; break;
                                         }
-                                        else if (time1[1] == time2[1] || time1[1] == time2[4]
-                                                || time1[4] == time2[1] || time1[4] == time2[4])
+                                        else if (time1[1] == time2[1] || time1[1] == time2[4] || time1[4] == time2[1] || time1[4] == time2[4])
                                         {
-                                            if (time1[2] > time2[2] && time1[2] < time2[5]
-                                                || time1[5] > time2[2] && time1[5] < time2[5])
+                                            //не проверяем на равенство, так как, если они равны, то они до этого этапа не дойдут, их раньше выкинет
+                                            if (((time1[2] > time2[2] && time1[2] < time2[5]) || (time1[5] > time2[2] && time1[5] < time2[5]))
+                                                || ((time2[2] > time1[2] && time2[2] < time1[5]) || (time2[5] > time1[2] && time2[5] < time1[5])))
                                             {
-                                                if (badValue) break;
+                                                badValue = true; break;
                                             }
 
                                         }
                                     }
+                                    if (badValue) break;
                                     count6++;
                                 }
                                 if (badValue) break;
                                 count5++;
-
-                                /*   if ((time1[0] <= time2[0] && time1[0] >= time2[3])
-                                      || (time1[3] >= time2[0] && time1[3] <= time2[3]))
-                                   {
-                                       if ((time1[0] == time2[0] && time1[0] == time2[3])
-                                           || (time1[3] == time2[0] && time1[3] == time2[3]))
-                                       {
-                                           if ((time1[1] <= time2[1] && time1[1] >= time2[4])
-                                               || (time1[4] >= time2[1] && time1[4] <= time2[4]))
-                                           {
-                                               if ((time1[1] == time2[1] && time1[1] == time2[4])
-                                                   || (time1[4] == time2[1] && time1[4] == time2[4]))
-                                               {
-                                                   if ((time1[2] <= time2[2] && time1[2] >= time2[5])
-                                                       || (time1[5] >= time2[2] && time1[5] <= time2[5]))
-                                                   {
-                                                       badValue = true; break;
-                                                   }
-                                               }
-                                           }
-                                       }
-                                   }
-                                   count6++;
-                               }
-                               if (badValue) break;
-                               count5++;*/
                             }
                         }
-
-                        /*if (!badValue)
-                        {
-                            for (int d = i + 1; count3 < capacityTimeArr; d++)
-                            {
-                                int[] timeOne = input[d].Split(':', '-').Select(x => int.Parse(x)).ToArray();
-                                count4 = 0;
-                                for (int h = d + 1; count3 + h < capacityTimeArr; h++)
-                                {
-                                    int[] timeTwo = input[d].Split(':', '-').Select(x => int.Parse(x)).ToArray();
-
-                                    if (time1[0] <= time2[0] || time1[0] >= time2[0]
-                                        || time1[1] == time2[0] || time1[1] == time2[1])
-                                    {
-                                        badValue = true; break;
-                                    }
-                                }
-                                if (badValue) break;
-                                count3++;
-                            }
-                        }*/
                     }
                 }
 
                 if (badValue) isRight = false;
-                /*if (capacityTimeArr > 1 && count3 != capacityTimeArr)
+               /* if (capacityTimeArr > 1 && count3 != capacityTimeArr)
                     isRight = false;
 
                 if (capacityTimeArr > 1 && count5 != capacityTimeArr)
-                    isRight = false;
-*/
+                    isRight = false;*/
+
                 if (isRight)
                 {
                     list.Add("YES");
@@ -218,3 +173,51 @@ namespace OzonTech
         }
     }
 }
+
+
+                                /*   if ((time1[0] <= time2[0] && time1[0] >= time2[3])
+                                     || (time1[3] >= time2[0] && time1[3] <= time2[3]))
+                                  {
+                                      if ((time1[0] == time2[0] && time1[0] == time2[3])
+                                          || (time1[3] == time2[0] && time1[3] == time2[3]))
+                                      {
+                                          if ((time1[1] <= time2[1] && time1[1] >= time2[4])
+                                              || (time1[4] >= time2[1] && time1[4] <= time2[4]))
+                                          {
+                                              if ((time1[1] == time2[1] && time1[1] == time2[4])
+                                                  || (time1[4] == time2[1] && time1[4] == time2[4]))
+                                              {
+                                                  if ((time1[2] <= time2[2] && time1[2] >= time2[5])
+                                                      || (time1[5] >= time2[2] && time1[5] <= time2[5]))
+                                                  {
+                                                      badValue = true; break;
+                                                  }
+                                              }
+                                          }
+                                      }
+                                  }
+                                  count6++;
+                              }
+                              if (badValue) break;
+                              count5++;*/
+
+                        /*if (!badValue)
+                       {
+                           for (int d = i + 1; count3 < capacityTimeArr; d++)
+                           {
+                               int[] timeOne = input[d].Split(':', '-').Select(x => int.Parse(x)).ToArray();
+                               count4 = 0;
+                               for (int h = d + 1; count3 + h < capacityTimeArr; h++)
+                               {
+                                   int[] timeTwo = input[d].Split(':', '-').Select(x => int.Parse(x)).ToArray();
+
+                                   if (time1[0] <= time2[0] || time1[0] >= time2[0]
+                                       || time1[1] == time2[0] || time1[1] == time2[1])
+                                   {
+                                       badValue = true; break;
+                                   }
+                               }
+                               if (badValue) break;
+                               count3++;
+                           }
+                       }*/

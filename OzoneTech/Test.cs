@@ -49,6 +49,8 @@ namespace OzonTech
 
                 pathIn = $"Tests\\{nameFolder}OzoneTest\\tests ({numTest})\\tests\\{testNumPath}";
                 pathOut = $"Tests\\{nameFolder}OzoneTest\\tests ({numTest})\\tests\\{testNumPath}.a";
+                /*pathIn = $"Tests\\{nameFolder}OzoneTest\\tests ({numTest})\\tests\\05";
+                pathOut = $"Tests\\{nameFolder}OzoneTest\\tests ({numTest})\\tests\\05.a";*/
                 bool pathInExist = IsPathExist(pathIn);
                 bool pathOutExist = IsPathExist(pathOut);
                 if (!pathInExist && !pathOutExist)
