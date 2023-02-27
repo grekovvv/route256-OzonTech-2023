@@ -18,6 +18,7 @@ namespace OzonTech
         /// </summary>
         /// <param name="numTest">test (1)</param>
         /// <param name="nameFolder">SandBox or Contest</param>
+        /// <param name="testClass">Name of your class</param>
         public static void AllTest<T>(int numTest, TestFileFolder nameFolder, T testClass) where T : class
         {
             Stopwatch TimeOneTest = new Stopwatch();
@@ -47,10 +48,11 @@ namespace OzonTech
                     testNumPath = i.ToString();
                 }
 
+                //testNumPath = 666 //если нужен конкретный тест, just write there.
+
                 pathIn = $"Tests\\{nameFolder}OzoneTest\\tests ({numTest})\\tests\\{testNumPath}";
                 pathOut = $"Tests\\{nameFolder}OzoneTest\\tests ({numTest})\\tests\\{testNumPath}.a";
-                /*pathIn = $"Tests\\{nameFolder}OzoneTest\\tests ({numTest})\\tests\\05";
-                pathOut = $"Tests\\{nameFolder}OzoneTest\\tests ({numTest})\\tests\\05.a";*/
+
                 bool pathInExist = IsPathExist(pathIn);
                 bool pathOutExist = IsPathExist(pathOut);
                 if (!pathInExist && !pathOutExist)
