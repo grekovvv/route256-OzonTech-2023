@@ -120,7 +120,6 @@ namespace OzonTech
 
                                     //нужно знать первое или второе значение дальше проверять, следоватьельно разбить на два списка
 
-
                                     /*for (int p = 0; p < 3; p++)
                                     {
                                         for (int l = 0; l < 3; l++)
@@ -141,7 +140,7 @@ namespace OzonTech
                                     }
                                     else if (time1[0] == time2[0] || time1[0] == time2[3] || time1[3] == time2[0] || time1[3] == time2[3])
                                     {
-                                        if (time1[0] == time2[0]) //возможно их time1[3] == time2[0] можно объеденить
+                                        if (time1[0] == time2[0]) 
                                         {
                                             if (time1[1] > time2[1] && time1[1] < time2[4])
                                             {
