@@ -101,7 +101,7 @@ namespace OzonTech
             {
                 if (result[i] != _out[i])
                 {
-                    Console.Write($"ERROR! - {result[i]} != {_out[i]} | test - {testNum} | string - {code_string}");
+                    Console.Write($"ERROR! - (my) {result[i]} != {_out[i]} | test - {testNum} | string - {code_string}");
                     return false;
                 }
                 code_string++;
