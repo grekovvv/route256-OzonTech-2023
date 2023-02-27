@@ -17,10 +17,6 @@ namespace OzonTech
             int n = startVal[0]; //n - кол-во пользователей
             int m = startVal[1]; //m - кол-во пар друзей
 
-            //List<List<int>> list2 = new List<List<int>>();
-
-
-
             int[,] s = new int[m, 2];
             for (int i = 1; i <= m; i++)
             {
