@@ -12,44 +12,9 @@ namespace OzoneTechAlgorithm.Sandbox
 {
     internal class H : MainInterface
     {
+        //Проходит все тесты мнгновенно
         public string[] MainMethod(string[] input)
         {
-            /*List<string> list = new List<string>();
-
-            int countSet = Convert.ToInt16(input[0]);
-            int caret = 1;
-
-            for (int s = 0; s < countSet; s++)
-            {
-                int[] startVal = input[caret].Split(' ').Select(x => int.Parse(x)).ToArray();
-                int n = startVal[0]; //n - кол-во строк 
-                int m = startVal[1]; //m - кол-во символов в каждой строке
-
-                var forSearchUnique = new List<char>();
-                string[,] maxtrix = new string[n, m];
-                for (int i = 0; i < n; i++)
-                {
-                    char[] data = input[caret + i + 1].ToArray();
-                    for (int j = 0; j < m; j++)
-                    {
-                        maxtrix[i, j] = data[j].ToString();
-                        forSearchUnique.Add(data[j]);
-                    }
-                    
-                }
-
-                string[] unique = forSearchUnique.Distinct().Select(x => x.ToString()).Where(x => x != ".").ToArray();
-
-
-                caret += n+1;
-            }
-
-
-
-
-
-            return list.ToArray();*/
-
             List<string> list = new List<string>();
             int caret = 1;
             int entries = Convert.ToInt16(input[0]);
@@ -117,7 +82,7 @@ namespace OzoneTechAlgorithm.Sandbox
         {   { 1, 0 }, { 0, -1 }, { -1, -1 }, { -1, 0 }, { -1, 1 }, { 0, 1 } },
         // odd rows
         {   { 1, 0 }, { 1, -1 }, { 0, -1 }, { -1, 0 }, { 0, 1 }, { 1, 1 } }
-    };
+        };
         static Hexagon oddr_offset_neighbor(int X, int Y, int direction)
         {
             var parity = Y & 1;
@@ -186,9 +151,3 @@ namespace OzoneTechAlgorithm.Sandbox
         }
     }
 }
-            /*1) есть некий R, у которого нет связи с другими R, при этом други R есть
-             *2) Есть некий R, у которого есть связи с другими R, также есть другой R, у которого есть связи с R
-             *Но при сравнении, у них нет пересекающихся связей.
-             *
-             * 
-            */
