@@ -6,7 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OzonTech
+namespace OzoneTechAlgorithm.Sandbox
 {
     //Задача решается через парсинг в DateTime
     //В начале решения я просто паршу стринг, это в данном случае неверно, лучше решить всё через DateTime
@@ -38,11 +38,11 @@ namespace OzonTech
                 //Первая валидация на правильность введенных значений и нарушение левых и правых границ
                 for (int j = i; count2 < capacityTimeArr; j++)
                 {
-                    int[] time = input[j+1].Split(':', '-').Select(x => int.Parse(x)).ToArray();
+                    int[] time = input[j + 1].Split(':', '-').Select(x => int.Parse(x)).ToArray();
 
                     for (int g = 0; g < time.Length; g++)
                     {
-                        if(g == 0 || g == 3)
+                        if (g == 0 || g == 3)
                         {
                             if (time[g] > 23 || time[g] < 0) { badValue = true; break; }
                         }
@@ -50,7 +50,7 @@ namespace OzonTech
                         {
                             if (time[g] > 59 || time[g] < 0) { badValue = true; break; }
                         }
-                        
+
                     }
 
                     if (badValue) break;
@@ -82,14 +82,14 @@ namespace OzonTech
                     count2++;
                 }
                 //Если произошёл break
-                if (count2 != capacityTimeArr) 
+                if (count2 != capacityTimeArr)
                     isRight = false;
 
                 if (isRight)
                 {
                     if (capacityTimeArr > 1)
                     {
-                        for (int d = i+1; count3 < capacityTimeArr; d++)
+                        for (int d = i + 1; count3 < capacityTimeArr; d++)
                         {
                             string[] time1 = input[d].Split('-');
                             count4 = 1 + count3;
@@ -97,7 +97,7 @@ namespace OzonTech
                             {
                                 string[] time2 = input[h].Split('-');
 
-                                if (time1[0] == time2[0] || time1[0] == time2[1] 
+                                if (time1[0] == time2[0] || time1[0] == time2[1]
                                     || time1[1] == time2[0] || time1[1] == time2[1])
                                 {
                                     badValue = true; break;
@@ -157,4 +157,4 @@ namespace OzonTech
             return list.ToArray();
         }
     }
-}                                
+}

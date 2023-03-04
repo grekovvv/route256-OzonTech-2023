@@ -1,6 +1,6 @@
 ﻿using OzoneTechAlgorithm.Interface;
 
-namespace OzonTech
+namespace OzoneTechAlgorithm.Sandbox
 {
     internal class D : MainInterface
     {
@@ -13,8 +13,8 @@ namespace OzonTech
         /// <param name="input"></param>
         /// <returns></returns>
         public string[] MainMethod(string[] input)
-        {   
-            
+        {
+
             List<string> list = new List<string>();
             int capacity = int.Parse(input[0]);
             int count = 0;
@@ -48,27 +48,27 @@ namespace OzonTech
                         //пропускаем если в предыдущем шаге уже сортировали этот столбец
                         if (col == Convert.ToInt32(clickCol[f - 1])) continue;
                     }
-                    
-                    for (int rov = 0; rov < rows; rov++)
-                        {
-                            for (int rov2 = rov+1; rov2 < rows; rov2++)
-                            {
-                                if (table[rov, col] > table[rov2, col])
-                                {
-                                    temp = table[rov, col];
-                                    table[rov, col] = table[rov2, col];
-                                    table[rov2, col] = temp;
 
-                                    for (int p = 0; p < columns; p++)
-                                    {
-                                        if (p == col) continue;
-                                        temp = table[rov, p];
-                                        table[rov, p] = table[rov2, p];
-                                        table[rov2, p] = temp;
-                                    }
+                    for (int rov = 0; rov < rows; rov++)
+                    {
+                        for (int rov2 = rov + 1; rov2 < rows; rov2++)
+                        {
+                            if (table[rov, col] > table[rov2, col])
+                            {
+                                temp = table[rov, col];
+                                table[rov, col] = table[rov2, col];
+                                table[rov2, col] = temp;
+
+                                for (int p = 0; p < columns; p++)
+                                {
+                                    if (p == col) continue;
+                                    temp = table[rov, p];
+                                    table[rov, p] = table[rov2, p];
+                                    table[rov2, p] = temp;
                                 }
                             }
                         }
+                    }
                 }
                 for (int u = 0; u < rows; u++)
                 {
@@ -76,7 +76,7 @@ namespace OzonTech
                     for (int p = 0; p < columns; p++)
                     {
                         temp_arr += table[u, p].ToString();
-                        if (p+1 != columns) temp_arr += " ";
+                        if (p + 1 != columns) temp_arr += " ";
                     }
                     list.Add(temp_arr);
                 }

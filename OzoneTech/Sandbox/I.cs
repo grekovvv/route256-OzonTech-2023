@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OzonTech
+namespace OzoneTechAlgorithm.Sandbox
 {
     internal class I
     {

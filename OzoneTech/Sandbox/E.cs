@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OzonTech
+namespace OzoneTechAlgorithm.Sandbox
 {
     internal class E : MainInterface
     {
@@ -50,7 +50,7 @@ namespace OzonTech
                         }
                     }
                     if (isNotRight) break;
-                    
+
                 }
                 if (!isNotRight)
                 {

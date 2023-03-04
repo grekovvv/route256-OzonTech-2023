@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography.X509Certificates;
 using OzoneTechAlgorithm.Enum;
+using OzoneTechAlgorithm.Sandbox;
 
 namespace OzonTech
 {
@@ -18,7 +19,7 @@ namespace OzonTech
             H h = new H();
             I i = new I();
             J j = new J();
-            Test.AllTest(7, TestFileFolder.SandBox, g);
+            Test.AllTest(1, TestFileFolder.SandBox, a);
             Console.ReadLine();
         }
     }

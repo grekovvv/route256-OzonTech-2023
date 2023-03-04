@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OzonTech
+namespace OzoneTechAlgorithm.Sandbox
 {
     internal class G : MainInterface
     {
@@ -18,13 +18,13 @@ namespace OzonTech
             var users = new Dictionary<int, int[]>();
             var pairs = new HashSet<(int UserId, int FriendId)>();
 
-            int[] startVal = input[0].Split(' ').Select(x => Int32.Parse(x)).ToArray();
+            int[] startVal = input[0].Split(' ').Select(x => int.Parse(x)).ToArray();
             int n = startVal[0]; //n - кол-во пользователей
             int m = startVal[1]; //m - кол-во пар друзей
 
-            for (int i = 1; i < m+1; i++)
+            for (int i = 1; i < m + 1; i++)
             {
-                int[] pair = input[i].Split(' ').Select(x => Int32.Parse(x)).ToArray();
+                int[] pair = input[i].Split(' ').Select(x => int.Parse(x)).ToArray();
 
                 pairs.Add((pair[0], pair[1]));
                 pairs.Add((pair[1], pair[0]));
