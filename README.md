@@ -12,3 +12,7 @@ If you have solution for any task - just pull request. It's simple. So we will h
 I take care just about tasks in Sandbox. It take more time than I expected, so I was stop on this part and go do other matters.
 
 Good Luck in your adventures!
+
+P.S. I don't know work this links for all people, but I leave it here.
+Sandbox tasks - https://routejunior.contest.codeforces.com/group/H3VxISVcTk/contest/421983
+Contest tasks - https://routejunior.contest.codeforces.com/group/H3VxISVcTk/contest/425603
