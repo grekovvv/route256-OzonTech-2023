@@ -1,6 +1,6 @@
 # OzonTech-Algorithm-2023
 
-Its repository when you can find all tasks from ozon tech contest 5'th February 2023. 
+Its repository when you can find all tasks from ozon tech contest (route256) 5'th February 2023. 
 
 It's so comfortable for you, my friend. In one place I collect all what you need:
 1. Automatization system for test your solution.
